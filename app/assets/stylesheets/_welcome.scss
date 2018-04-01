@@ -1,0 +1,37 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.carousel {
+	width: 100%;
+}
+#myCarousel {
+	margin-bottom: 50px;
+}
+.rounded-circle {
+	border-radius: 50%;
+}
+
+.marketing .col-lg-4 {
+	text-align: center;
+}
+.carousel-caption {
+	background-color: rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	line-height: 50px;
+}
+.carousel-control {
+	z-index: 12;
+}
+
+.guts {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}

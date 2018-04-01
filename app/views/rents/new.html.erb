@@ -1,0 +1,14 @@
+<h1>Rent me!</h1>
+
+<%= form_for @rental, :url => {:action => "create", :id => @parkS.id} do |f| %>
+	
+	<%=f.text_field :buyer_id, :value => current_user.id%>
+	<%=f.text_field :seller_id, :value => @parkS.user_id%>
+	<%=f.hidden_field :parking_spot_id, :value => @parkS.id%>
+	<%=f.number_field :rate, :value => @parkS.rate%>
+	
+	Start Date <%#=f.datetime_field :start_time %>
+	End Date <%#=f.datetime_field :end_time %>
+	<%= f.submit :confirm => 'Are you sure?' %>
+
+<% end %>

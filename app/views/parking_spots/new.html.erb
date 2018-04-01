@@ -1,0 +1,14 @@
+<%= form_for @parkS do |f| %>
+	
+	<%=f.hidden_field :user_id, :value => current_user.id%>
+	Rate <%=f.number_field :rate, :step => :any %>
+	Location <%=f.text_field :location %>
+	Image <%=f.text_field :image %>
+	Start Date <%=f.datetime_field :start_time %>
+	End Date <%=f.datetime_field :end_time %>
+	<%=f.hidden_field :rented, :value => false %>
+	# spots<%=f.number_field :spotsAvail %>
+	description <%= f.text_area :description %>
+	<%= f.submit %>
+
+<% end %>

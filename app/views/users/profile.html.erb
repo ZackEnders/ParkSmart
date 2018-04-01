@@ -1,0 +1,38 @@
+<h1>Dashboard</h1>
+<div class="user_title"><h1> <%=@user.username%>'s Profile</h1>
+	<% if user_signed_in? %>
+		<% if current_user.username == @user.username %>
+    	<%= link_to 'Edit Profile', edit_user_registration_path %>
+    	<div>
+    		Rentals
+    			<% @rentals.each do |r| %>
+    				<%= r.location %>
+    				<br>
+    				<%= r.start_time.to_s.to_date %> - 
+    				<%= r.end_time.to_s.to_date%>
+    			<% end %>
+    	</div>
+    	<% end %>
+    <%end %>
+</div>
+
+
+	My Parking Spots
+		<br>
+	<div style="border: 1px solid black">
+
+	<% @parkS.each do |p| %>
+		location <%= p.location %>
+		<br>
+		rate $<%= p.rate %>
+		<br>
+		rented? <%= p.rented %>
+		<br>
+		Start time <%= p.start_time %>
+		End time <%= p.end_time %>
+		<br>
+		#spots <%= p.spotsAvail %>
+<hr>
+	<% end %>
+
+</div>

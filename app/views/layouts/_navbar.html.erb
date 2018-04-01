@@ -1,0 +1,31 @@
+<!-- _navbar.scss for styles -->
+<!-- This is the nav bar when you're a guest -->
+<% if !user_signed_in? %>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+          <a href="/" class="navbar-brand"><span class="glyphicon glyphicon-home"></span> PARKSMART</a>
+      </div>
+        <ul  class="nav navbar-nav navbar-right">
+          <li><a href="/parking_spots">Parking</a></li>
+          <li><a href="/users/sign_in"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+          <li><a href="/users/sign_up"><span class="glyphicon glyphicon-log-in"></span> Sign Up</a></li>
+        </ul> 
+      </div>
+    </div>
+  </nav>
+<% else %>
+<!-- This is the nav bar when you're logged in as a user -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <%= link_to "PARKSMART", user_profile_path(:username => current_user.username) , class: "navbar-brand"%>
+      </div>
+      <ul  class="nav navbar-nav navbar-right">
+        <li><%= link_to "Parking", parking_spots_path(:username => current_user.username)%></li>
+        <li><%= link_to "Profile", user_profile_path(:username => current_user.username)%></li>
+        <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+      </ul>
+    </div>
+  </nav>
+<% end %>
