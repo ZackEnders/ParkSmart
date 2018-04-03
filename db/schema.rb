@@ -10,32 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180331030851) do
+ActiveRecord::Schema.define(version: 20180403022135) do
 
-  create_table "parking_spots", force: :cascade do |t|
+  create_table "parkingspots", force: :cascade do |t|
     t.integer "user_id"
-    t.float "rate"
-    t.string "location"
-    t.string "image"
+    t.string "address"
+    t.integer "price"
     t.boolean "rented"
-    t.integer "spotsAvail"
+    t.string "description"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "listing_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "description"
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.index ["user_id"], name: "index_parkingspots_on_user_id"
   end
 
-  create_table "rents", force: :cascade do |t|
-    t.integer "parking_spot_id"
-    t.integer "buyer_id"
-    t.integer "seller_id"
-    t.float "rate"
+  create_table "reservations", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "parkingspot_id"
+    t.float "price"
+    t.float "total"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.string "location"
+    t.index ["parkingspot_id"], name: "index_reservations_on_parkingspot_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,7 +46,7 @@ ActiveRecord::Schema.define(version: 20180331030851) do
     t.string "gender"
     t.string "phoneNumber"
     t.string "location"
-    t.string "discription"
+    t.string "description"
     t.string "avatar"
     t.string "username", default: "", null: false
     t.string "email", default: "", null: false

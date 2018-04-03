@@ -7,7 +7,7 @@
 		<img src="<%= image_path('parking-is-hard2.jpg') %>" alt="First slide" max-height= "100vh">
 			<div class="container">
         <div class="carousel-caption">
-        	<div class="guts">
+        	<div class="carousel-guts">
           	<h1>Driving around the block countless times?</h1>
           	<p>If you live in a city you know that finding a parking spot can be a miserable experience.</p>
           	<p><a class="btn btn-lg btn-primary" href="/users/sign_up" role="button">Sign up today</a></p>
@@ -19,7 +19,7 @@
 	<div class="item">
 		<img src="<%= image_path('cars-city2.jpg')%>" alt="Second Slide">
 			<div class="carousel-caption">
-				<div class="guts">
+				<div class="carousel-guts">
         <h1>Taxi? No Way!</h1>
         <p>Why take a taxi or an uber when you own your own vehicle...  </p>
         <p><a class="btn btn-lg btn-primary" href="/users/sign_up" role="button">Sign up today</a></p>
@@ -30,7 +30,7 @@
 	<div class="item">
 		<img class="right" src="<%= image_path('bikes-allowed2.jpg') %>" alt="Third Slide">
 			<div class="carousel-caption">
-				<div class="guts">
+				<div class="carousel-guts">
         <h1>Motorcycles Welcome!</h1>
         <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
         <p><a class="btn btn-lg btn-primary" href="/users/sign_up" role="button">Sign up today</a></p>
@@ -74,16 +74,62 @@
       	<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
     </div><!-- /.col-lg-4 -->
   </div>
+
+
+<hr class="featurette-divider">
+
+<div class="row featurette">
+  <div class="col-md-7">
+    <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+  </div>
+  <div class="col-md-5">
+    <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 450px; height: 350px;" src="<%= image_path('wrecked-car.jpg') %>" data-holder-rendered="true">
+  </div>
 </div>
 
+<hr class="featurette-divider">
+
+<div class="row featurette">
+  <div class="col-md-5">
+    <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 450px; height: 350px;" src="<%= image_path('streets-full.jpg')%>" data-holder-rendered="true">
+  </div>
+  <div class="col-md-7">
+    <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+  </div>
+</div>
+
+<hr class="featurette-divider">
+
+<div class="row featurette">
+  <div class="col-md-7">
+    <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+  </div>
+  <div class="col-md-5">
+    <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 450px; height: 400px;" src="<%= image_path('empty-driveway.jpg') %>" data-holder-rendered="true">
+  </div>
+</div>
+</div>
+<hr class="featurette-divider">
 <style type="text/css">
 
+  
 </style>
+<footer>
+<%= render file: "/layouts/_footer" %>
+</footer>
+<div class="text-center getapp">
+<a href="#"><div id="googleplay"></div></a>
+<a href="#"><div id="applestore"></div></a>
+</div>
 
 
-<p>Finding a parking spot can be a miserable experience.</p>
+
+<!-- <p>Finding a parking spot can be a miserable experience.</p>
 <p>Do you have a driveway? Does it have spots that are sitting empty? What about when you're at work?</p>
 <p>Turn that empty spot into cash by renting it out on ParkSmart!</p>
 <p>Create an account, fill out the form, and put in the location of the spot!</p>
 <a href="/users/sign_in">Sign In</a>
-<a href="/users/sign_up">Sign Up</a>
+<a href="/users/sign_up">Sign Up</a> -->

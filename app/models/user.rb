@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :parking_spots
-  has_many :rents
+  has_many :parkingspots
+  has_many :reservations
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -11,7 +11,16 @@ class User < ApplicationRecord
   validates :username, presence: :true, uniqueness: { case_sensitive: false }
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
   validate :validate_username
+  validates :date_of_birth, :presence => true
+  validate :validate_age
 
+  private
+
+  def validate_age
+      if date_of_birth.present? && date_of_birth > 18.years.ago.to_date
+          errors.add(:date_of_birth,': You should be over 18 years old.')
+      end
+  end
   def validate_username
     if User.where(email: username).exists?
       errors.add(:username, :invalid)
