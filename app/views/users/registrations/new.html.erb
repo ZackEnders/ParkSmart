@@ -1,5 +1,5 @@
 <!-- Styling in users.scss -->
-
+<% @disable_footer = true %>
 
 <style type="text/css">
   .min-pass {
@@ -9,42 +9,80 @@
     padding: 1px;
   }
 
+  .dob_1i {
+    background-color: black;
+    color: black;
+  }
+  #user_date_of_birth_1i {
+    background: rgba(0,0,0,0.5);
+  }
+  #user_date_of_birth_1i option {
+    font-size: 10px;
+  }
+  #user_date_of_birth_2i {
+    background: rgba(0,0,0,0.5);
+  }
+  #user_date_of_birth_3i {
+    background: rgba(0,0,0,0.5);
+  }
+  .fixed-right {
+    position: fixed;
+    top: 30%;
+    right: 30%;
+    color: white;
+    width: 400px;
+  }
+
 </style>
+
 <body class="signup-bg">
   <div class="signup-overlay">
+      <div class="fixed-right">
+          <%= devise_error_messages! %>
+        </div>
     <div id="signupForm">
       <div class="form-group">
-    <h2 class="text-center">Sign Up</h2>
+        <h2 class="text-center">Sign Up</h2>
+        
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div>
-    <%= f.text_field :username, autofocus: true, autocomplete: "off",label: "Username", placeholder: "Username", class: "form-control" %>
+        <div>
+      <%= f.text_field :fName, autofocus: true, placeholder:"First Name", autocomplete: "off",:required => true, class: "form-control"%>
+    </div>
+      <div>
+      <%= f.text_field :lName, autofocus: true, placeholder:"Last Name", autocomplete: "off", :required => true, class: "form-control"%>
+    </div>
+    <div class="text-center min-pass">
+      <div>Must be 18 or older</div>
+    </div>
+    <div class="text-center">
+      <%= f.date_select :date_of_birth, order: [:month, :day, :year], start_year: Date.today.year - 18, end_year: Date.today.year - 100, autofocus: true, autocomplete: "off", class: "form-control dob"%>
+      </div>
+        <div>
+          <%= f.text_field :username, autofocus: true, autocomplete: "off",label: "Username", placeholder: "Username", class: "form-control" %> 
+        </div>
+        <hr class="form-hr">
+        <div >
+          <%= f.email_field :email, autofocus: true, autocomplete: "email",label: "Email", placeholder: "Email", class: "form-control" %>
+        </div>
+        <hr class="form-hr">
+      <% if @minimum_password_length %>
+        <div class="text-center min-pass">Password must be at least <%= @minimum_password_length %> characters</div>
+      <% end %>
+        <div >
+          <%= f.password_field :password, autocomplete: "off",label: "Password", placeholder: "Password", class: "form-control" %>
+        </div>
+        <hr class="form-hr">
+        <div >
+          <%= f.password_field :password_confirmation, autocomplete: "off",label: "Password_confirmation", placeholder: "Confirm Password", class: "form-control" %>
+        </div>
+        <hr class="form-hr">
+        <div class="text-center">
+          <%= f.submit "Sign up", class: "signup-btn btn btn-primary" %>
+        </div>
+      <% end %>
+        <p class="text-center">Already have an account? <span class="link"><%= render "users/shared/links" %></span></p>
+      </div>
+    </div>
   </div>
-    <hr class="form-hr">
-  <div >
-    <%= f.email_field :email, autofocus: true, autocomplete: "email",label: "Email", placeholder: "Email", class: "form-control" %>
-  </div>
-    <hr class="form-hr">
-    <% if @minimum_password_length %>
-    <div class="text-center min-pass">Password must be at least <%= @minimum_password_length %> characters</div>
-    <% end %>
-  <div >
-    <%= f.password_field :password, autocomplete: "off",label: "Password", placeholder: "Password", class: "form-control" %>
-  </div>
-    <hr class="form-hr">
-  <div >
-    <%= f.password_field :password_confirmation, autocomplete: "off",label: "Password_confirmation", placeholder: "Confirm Password", class: "form-control" %>
-  </div>
-    <hr class="form-hr">
-  <div class="text-center">
-    <%= f.submit "Sign up", class: "signup-btn btn btn-primary" %>
-  </div>
-<% end %>
-
-<p class="text-center">Already have an account? <span class="link"><%= render "users/shared/links" %></span></p>
-  </div>
-  </div>
-</div>
 </body>

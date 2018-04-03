@@ -1,19 +1,9 @@
-// Place all the styles related to the welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
+// Carousel
 .carousel {
 	width: 100%;
 }
 #myCarousel {
 	margin-bottom: 50px;
-}
-.rounded-circle {
-	border-radius: 50%;
-}
-
-.marketing .col-lg-4 {
-	text-align: center;
 }
 .carousel-caption {
 	background-color: rgba(0, 0, 0, 0.3);
@@ -29,9 +19,54 @@
 	z-index: 12;
 }
 
-.guts {
+.carousel-guts {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+
+//marketing section
+.rounded-circle {
+	border-radius: 50%;
+}
+.marketing .col-lg-4 {
+	text-align: center;
+}
+
+.featurette-image {
+	overflow: hidden;
+	/*margin-left: 30px;*/
+}
+.featurette-divider {
+	margin: 5rem;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+// contains the phone app buttons
+.getapp {
+	padding: 20px;
+	margin: 20px;
+}
+#googleplay {
+	background-image: url("/assets/googleplay.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	border-radius: 8px;
+	margin: 10px;
+	width: 200px;
+	height: 60px;
+	border: 1px solid black;
+	display: inline-block;
+}
+#applestore {
+	background-image: url("/assets/applestore.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	border-radius: 8px;
+	margin: 10px;
+	width: 200px;
+	height: 60px;
+	border: 1px solid black;
+	display: inline-block;
 }

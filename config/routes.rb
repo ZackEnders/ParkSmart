@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   get '/profile/:username', to:"users#profile", as:"user_profile"
 
   devise_for :users
-
-  resources :parking_spots do
-  	resources :rents
-
+ 
+  resources :parkingspots do
+  	resources :reservations, only: [:create, :show]
+  	# get '/:reservation_id', to: 'reservations#show', as: :reservation_confirmation
 	end
 
 end

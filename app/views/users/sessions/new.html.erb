@@ -1,34 +1,34 @@
 <!-- Styling in users.scss -->
-
+<% @disable_footer = true %>
 <body class="login-bg">
   <div class="login-overlay">
     <div id="loginForm">
-    <div class="form-group">
-      <h2 class="text-center">Login </h2>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div>
-        <%= f.text_field :login, label: "Username or email", autofocus: true, autocomplete: "email", placeholder: "Username or Email",class: "form-control" %>
-      </div>
+      <div class="form-group">
+        <h2 class="text-center">Login </h2>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div>
+          <%= f.text_field :login, label: "Username or email", autofocus: true, autocomplete: "email", placeholder: "Username or Email",class: "form-control" %>
+        </div>
         <hr class="form-hr">
-      <div>
-        <%= f.password_field :password, label: "Password", autocomplete: "off", placeholder: "Password", class: "form-control" %>
-      </div>
+        <div>
+          <%= f.password_field :password, label: "Password", autocomplete: "off", placeholder: "Password", class: "form-control" %>
+        </div>
         <hr class="form-hr">
-    <% if devise_mapping.rememberable? -%>
-      <div class="text-center checkbox mb-3">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
-      </div>
-    <% end -%>
-      <div class="text-center">
-        <%= f.submit "Log in", class: "login-btn btn btn-primary"%>
-      </div>
-    <% end %>
-      <div class="text-center">
-        <p>Need an account?<%= render "users/shared/links" %></p>
+      <% if devise_mapping.rememberable? -%>
+        <div class="text-center checkbox mb-3">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end -%>
+        <div class="text-center">
+          <%= f.submit "Log in", class: "login-btn btn btn-primary"%>
+        </div>
+      <% end %>
+        <div class="text-center">
+          <p>Need an account?<%= render "users/shared/links" %></p>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 </body>
 

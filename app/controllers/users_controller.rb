@@ -6,9 +6,8 @@ class UsersController < ApplicationController
 		# user_session
 	def profile
 		@user = User.find_by_username(params[:username])
-		@parkS = ParkingSpot.where(user_id: @user.id)
-		@rentals = Rent.where(buyer_id: @user.id)
+		@parkingspot = Parkingspot.where(user_id: @user.id)
+		@reservation = Reservation.where(user_id: @user.id)
 	end
-
 
 end

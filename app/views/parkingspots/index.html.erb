@@ -1,0 +1,7 @@
+<% @parkingspots.each do |ps| %>
+<a href="/parkingspots/<%= ps.id%>">
+<%= ps.id %>
+<%= ps.address %>
+<%= ps.price %>
+</a>
+<% end %>

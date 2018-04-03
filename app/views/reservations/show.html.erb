@@ -1,0 +1,11 @@
+<h1>Reservation confirmation</h1>
+<p>Your ConfirmationID# is: <%= @reservation.id %></p>
+<p>The cost of your Reservation is: <%= @reservation.total %></p>
+<p>Start Date: <%= @reservation.start_date.strftime("%m/%d/%Y") %></p>
+<p>End Date: <%= @reservation.end_date.strftime("%m/%d/%Y") %></p>
+
+<p>Listing Name: <%= @parkingspot.listing_name%></p>
+<p>Address: <%= @parkingspot.address%></p>
+<p>Description: <%= @parkingspot.description%></p>
+<p>Owner: <a href="/profile/<%= @user.username %>"><%= @user.username %></a></p>
+

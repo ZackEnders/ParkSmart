@@ -3,15 +3,15 @@
 	<% if user_signed_in? %>
 		<% if current_user.username == @user.username %>
     	<%= link_to 'Edit Profile', edit_user_registration_path %>
-    	<div>
-    		Rentals
-    			<% @rentals.each do |r| %>
-    				<%= r.location %>
-    				<br>
-    				<%= r.start_time.to_s.to_date %> - 
-    				<%= r.end_time.to_s.to_date%>
-    			<% end %>
-    	</div>
+   				<% @reservation.each do |r| %>
+   				<div>
+   					<%= r.start_date.to_s.to_date %> -
+   					<%= r.end_date.to_s.to_date %>
+   					<a href="../parkingspots/<%= r.parkingspot_id %>">Parkingspot show page</a>
+   				<%#= link_to "Reservation Confirmation!", parkingspot_reservation_confirmation_path %>
+   					<a href="../parkingspots/<%= r.parkingspot_id %>/reservations/<%= r.id %>">Reservation Confirmation</a>
+   				</div>
+   			<% end %>
     	<% end %>
     <%end %>
 </div>
@@ -19,19 +19,15 @@
 
 	My Parking Spots
 		<br>
-	<div style="border: 1px solid black">
 
-	<% @parkS.each do |p| %>
-		location <%= p.location %>
+	<% @parkingspot.each do |p| %>
+		location <%= p.address %>
 		<br>
-		rate $<%= p.rate %>
+		rate $<%= p.price %>
 		<br>
 		rented? <%= p.rented %>
 		<br>
-		Start time <%= p.start_time %>
-		End time <%= p.end_time %>
-		<br>
-		#spots <%= p.spotsAvail %>
+		name <%= p.listing_name %>
 <hr>
 	<% end %>
 

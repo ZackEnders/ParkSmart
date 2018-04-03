@@ -1,0 +1,25 @@
+<head>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+<div>Parking spot id <%= @parkingspot.id %></div>
+<h1>Parking spot</h1>
+
+	<!-- <div>Image: <%#= @parkingspot.image %></div> -->
+	<div>Image: <%= @parkingspot.listing_name %></div>
+	<div>Description: <%= @parkingspot.description %></div>
+	<div>Cost/hr: <%= @parkingspot.price %></div>
+	<div>Location: <%= @parkingspot.address %></div>
+	<div>Rented: <%= @parkingspot.rented %></div>
+	
+
+<% if user_signed_in? %>
+<%= render "reservations/form" %>
+<% else %>
+Please <%= link_to 'Login', new_user_session_path%> or 
+<%= link_to 'Sign Up', new_user_registration_path %> to reserve this spot!
+<% end %>
+
+
+
+
+
