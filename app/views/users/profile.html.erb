@@ -17,10 +17,14 @@
 </div>
 
 
-	My Parking Spots
-		<br>
 
+		<br>
+<%= link_to "Rent parking spot form", new_parkingspot_path %>
+
+
+	My Parking Spots
 	<% @parkingspot.each do |p| %>
+	<div>
 		location <%= p.address %>
 		<br>
 		rate $<%= p.price %>
@@ -29,6 +33,7 @@
 		<br>
 		name <%= p.listing_name %>
 <hr>
+</div>
 	<% end %>
 
 </div>
