@@ -8,28 +8,53 @@
 	<div>Image: <%= @parkingspot.listing_name %></div>
 	<div>Description: <%= @parkingspot.description %></div>
 	<div>Cost/hr: <%= @parkingspot.price %></div>
-	<div>Location: <%= @parkingspot.address %></div>
+	<div>Location: <%= @parkingspot.address%></div>
+
  
    <style>
-       #map {
+       #map{
         height: 400px;
-        width: 100%;
+        width: 40%;
        }
     </style>
- <h3>My Google Maps Demo</h3>
+
+    <input type="button" value="Toggle Street View" onClick="toggleStreetView()"></input>
     <div id="map"></div>
     <script>
+      var longitude = parseFloat('<%= @parkingspot.longitude %>')
+      var latitude = parseFloat('<%= @parkingspot.latitude %>')
+
+      var myLatLng = {lat: latitude, lng: longitude};
+
       function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: uluru
+          zoom: 15,
+          center: {lat: latitude, lng: longitude}
         });
+
         var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
+          position: myLatLng,
+          map: map,
+          title: '<%= @parkingspot.address%>'
         });
+
+        streetView = map.getStreetView();
+        streetView.setPosition(myLatLng);
+        streetView.setPov(/** @type {google.maps.StreetViewPov} */({
+          heading: 200, 
+          pitch: 0
+        }));
       }
+
+      function toggleStreetView() {
+        var toggle = streetView.getVisible();
+        if (toggle == false) {
+          streetView.setVisible(true);
+        } else {
+          streetView.setVisible(false);
+        }
+      }
+      
     </script>
     <script async defer
     src='https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_API_KEY"]%>&callback=initMap'>
@@ -42,7 +67,6 @@
 Please <%= link_to 'Login', new_user_session_path%> or 
 <%= link_to 'Sign Up', new_user_registration_path %> to reserve this spot!
 <% end %>
-
 
 
 
