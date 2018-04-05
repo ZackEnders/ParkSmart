@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180403022135) do
+ActiveRecord::Schema.define(version: 20180405173721) do
 
   create_table "parkingspots", force: :cascade do |t|
     t.integer "user_id"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20180403022135) do
     t.string "listing_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
+    t.text "image_data"
     t.index ["user_id"], name: "index_parkingspots_on_user_id"
   end
 
