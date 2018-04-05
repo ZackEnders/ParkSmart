@@ -1,7 +1,33 @@
+
+<div class="container">
 <% @parkingspots.each do |ps| %>
+
+<div class="col-sm-3">
+<div class="parkingspotpic"></div>
+
+
 <a href="/parkingspots/<%= ps.id%>">
-<%= ps.id %>
-<%= ps.address %>
-<%= ps.price %>
+<div><%= ps.id %></div>
+<div><%= ps.address %></div>
+<div><%= ps.price %></div>
 </a>
+</div>
 <% end %>
+
+
+
+</div>
+<style type="text/css">
+	.container {
+	
+	}
+	.col-sm-3{
+	margin-top: 100px;
+
+	}
+	.parkingspotpic {
+		width: 200px;
+		height: 200px;
+		border: 1px solid black;
+	}
+</style>

@@ -1,60 +1,36 @@
-<h1>Reservation confirmation</h1>
-<p>Your ConfirmationID# is: <%= @reservation.id %></p>
-<p>The cost of your Reservation is: <%= @reservation.total %></p>
-<p>Start Date: <%= @reservation.start_date.strftime("%m/%d/%Y") %></p>
-<p>End Date: <%= @reservation.end_date.strftime("%m/%d/%Y") %></p>
+<div id="confirmationPage">
+  <div class="jumbotron">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7 confirmationInfo">
+          
+          <h1>Reservation Confirmation</h1>
+          <h4>Your ConfirmationID# is: <%= @reservation.id %></h4>
+          <h4>The cost of your Reservation is: <%= number_to_currency(@reservation.price) %></h4>
+          <h4>Start Date: <%= @reservation.start_date.strftime("%d/%m/%Y") %></h4>
+          <h4>End Date: <%= @reservation.end_date.strftime("%d/%m/%Y") %></h4>
+          <h4>Address: <%= @parkingspot.address%></h4>
+          <h4>Listing Name: <span class="confSpan"><%= @parkingspot.listing_name%></span></h4>
+          <h4>Description: <span class="confSpan"><%= @parkingspot.description%></span></h4>
+          <h4>Owner: 
+            <span class="confSpan text-capitalize">
+              <a href="/profile/<%= @user.username %>">
+                <%= @user.username %>
+              </a>
+            </span>
+          </h4>
 
-<p>Listing Name: <%= @parkingspot.listing_name%></p>
-<p>Address: <%= @parkingspot.address%></p>
-<p>Description: <%= @parkingspot.description%></p>
-<p>Owner: <a href="/profile/<%= @user.username %>"><%= @user.username %></a></p>
- <style>
-       #map{
-        height: 400px;
-        width: 40%;
-       }
-    </style>
+            <span>
+              <a href="/parkingspots/<%= @parkingspot.id%>" class="listingLinkColor">
+                Link to listing
+              </a>
+            </span>
+        </div>
 
-
-    <input type="button" value="Toggle Street View" onClick="toggleStreetView()"></input>
-    <div id="map"></div>
-    <script>
-      var longitude = parseFloat('<%= @parkingspot.longitude %>')
-      var latitude = parseFloat('<%= @parkingspot.latitude %>')
-
-      var myLatLng = {lat: latitude, lng: longitude};
-
-      function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,
-          center: {lat: latitude, lng: longitude}
-        });
-
-        var marker = new google.maps.Marker({
-          position: myLatLng,
-          map: map,
-          title: '<%= @parkingspot.address%>'
-        });
-
-        streetView = map.getStreetView();
-        streetView.setPosition(myLatLng);
-        streetView.setPov(/** @type {google.maps.StreetViewPov} */({
-          heading: 200, 
-          pitch: 0
-        }));
-      }
-
-      function toggleStreetView() {
-        var toggle = streetView.getVisible();
-        if (toggle == false) {
-          streetView.setVisible(true);
-        } else {
-          streetView.setVisible(false);
-        }
-      }
-      
-    </script>
-    <script async defer
-    src='https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_API_KEY"]%>&callback=initMap'>
-    </script>
-
+        <div class="col-md-5">
+          <%= render "maps/googlemaps" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

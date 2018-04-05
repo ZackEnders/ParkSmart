@@ -7,29 +7,15 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
   </head>
+  
   <header class="main-header">
    <%= render file: "/layouts/_navbar" %>
   </header>
 
   <body>
-    <style>
-      .notice {
-        position: fixed;
-        top: 10%;
-        left: 50%;
-      }.alert {
-        position: fixed;
-        top: 10%;
-        left: 50%;
-      }
-    </style>
   	<p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
-   <!--  <footer>
-      <%#= render file: "/layouts/_footer" unless @disable_footer %>
-    </footer> -->
   </body>
 </html>

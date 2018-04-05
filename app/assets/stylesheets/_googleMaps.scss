@@ -1,0 +1,41 @@
+//Google maps box in the maps/googlemaps partial
+
+// Confirmation Map
+
+#reservation-show-map {
+	height: 400px;
+	width: 100%;
+	border: 2px solid black;
+	border-radius: 5px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#toggleButton {
+	position: absolute;
+	bottom: 0%;
+	left: 95px;
+	z-index: 10;
+	color: white;
+	border: 1px solid black;
+	border-radius: 2px;
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+//Parkingspot Show Map
+
+#parking-show-map {
+	height: 400px;
+	width: 100%;
+	border: 2px solid black;
+	border-radius: 5px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#toggleButton {
+	position: absolute;
+	bottom: 0%;
+	left: 95px;
+	z-index: 10;
+	color: white;
+	border: 1px solid black;
+	border-radius: 2px;
+	background-color: rgba(0, 0, 0, 0.7);
+}
