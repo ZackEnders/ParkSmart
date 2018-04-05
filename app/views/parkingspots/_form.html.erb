@@ -1,13 +1,9 @@
 <head>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_API_KEY"] %>&libraries=places"></script>
-<script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
-<script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script> <!-- only if you need custom infoboxes -->
-
-
-
+  <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
+  <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script> <!-- only if you need custom infoboxes -->
 </head>
-
 <script type="text/javascript">
             function init() {
                 var input = document.getElementById('locationTextField');
@@ -16,8 +12,6 @@
             google.maps.event.addDomListener(window, 'load', init);
 </script>
 
-
-
 <div class="panel panel-default">
   <div class="panel-heading">
     Rent your Parking spot!
@@ -25,26 +19,24 @@
   <div class="panel-body">
     <div class="container">
       <%= form_for @parkingspot do |f| %>
-            <%= f.hidden_field :user_id,
-            :value => current_user.id %>
         <div class="row">
             <div class="form-group">
               <label>Listing Name</label>
-              <%= f.text_field :listing_name, placeholder: 'Be clear and descriptive', class: 'form-control' %>
+              <%= f.text_field :listing_name, :required => true, placeholder: 'Be clear and descriptive', class: 'form-control' %>
             </div>
         </div>
 
           <div class="row">
             <div class="form-group">
               <label>Description</label>
-              <%= f.text_area :description, rows: 5, placeholder: 'Tell about your parking spot!', class: 'form-control' %>
+              <%= f.text_area :description, rows: 5,:required => true, placeholder: 'Tell about your parking spot!', class: 'form-control' %>
             </div>
           </div>
 
           <div class="row">
             <div class="form-group">
               <label>Address</label>
-              <%= f.text_field :address, id:  "locationTextField", placeholder: 'What is your address?', class: 'form-control' %>
+              <%= f.text_field :address, id:  "locationTextField",:required => true, placeholder: 'What is your address?', class: 'form-control' %>
             </div>
           </div>
 
@@ -75,6 +67,7 @@
             <%#= render 'photos/list' %>
           </div> -->
 
+          <%= f.hidden_field :user_id, :value => current_user.id %>
           <div class="row">
             <div class="form-group">
               <label><%= f.check_box :rented %> Rented</label>

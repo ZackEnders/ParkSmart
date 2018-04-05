@@ -73,6 +73,7 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    down (4.3.0)
     erubi (1.7.1)
     execjs (2.7.0)
     ffi (1.9.23)
@@ -161,6 +162,8 @@ GEM
     selenium-webdriver (3.11.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
+    shrine (2.10.1)
+      down (~> 4.1)
     simple_calendar (2.2.7)
       rails (>= 3.0)
     spring (2.0.2)
@@ -219,6 +222,7 @@ DEPENDENCIES
   rails (~> 5.1.6)
   sass-rails (~> 5.0)
   selenium-webdriver
+  shrine
   simple_calendar (~> 2.0)
   spring
   spring-watcher-listen (~> 2.0.0)

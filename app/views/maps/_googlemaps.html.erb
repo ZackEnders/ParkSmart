@@ -1,0 +1,45 @@
+<!-- Google Maps partial -->
+<!-- Google Maps styling in googleMaps.scss -->
+<!-- Render box -->
+<div id="parking-show-map"></div>
+<input type="button" id="toggleButton" value="Street View" onClick="toggleStreetView()"></input>
+<!-- JavaScript to make the google map work -->
+<script>
+var longitude = parseFloat('<%= @parkingspot.longitude %>')
+var latitude = parseFloat('<%= @parkingspot.latitude %>')
+var myLatLng = {lat: latitude, lng: longitude};
+
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('parking-show-map'), {
+    zoom: 15,
+    center: {lat: latitude, lng: longitude}
+  });
+  
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: '<%= @parkingspot.address%>'
+  });
+
+  streetView = map.getStreetView();
+  streetView.setPosition(myLatLng);
+  streetView.setPov(/** @type {google.maps.StreetViewPov} */({
+    heading: 200, 
+    pitch: 0
+  }));
+}
+
+function toggleStreetView() {
+  var toggle = streetView.getVisible();
+
+  if (toggle == false) {
+    streetView.setVisible(true);
+  } else {
+    streetView.setVisible(false);
+  }
+}
+</script>
+<!-- Api call -->
+<script async defer
+src='https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_API_KEY"]%>&callback=initMap'>
+</script>

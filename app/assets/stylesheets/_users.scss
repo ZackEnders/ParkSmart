@@ -168,3 +168,23 @@
 		);
 	}
 }
+
+// ------------------- Edit Profile -------------------- //
+#editForm {
+	.form-control {
+		text-align: center;
+	}
+	.col-md-4 {
+		text-align: center;
+		background: rgba(220, 220, 220, 0.9);
+		border: 1px solid black;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	}
+}
+.editProfile-bg {
+	background-image: url("/assets/profile-bg.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center center;
+}

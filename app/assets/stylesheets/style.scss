@@ -1,8 +1,17 @@
+// Normalize the css
+@import "normalize";
+
+//Bootstrap libs
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "normalize";
-@import "navbar";
-@import "layout";
+//Datepicker libs
 @import "datepicker-calendar";
+
+//Local Scss
+@import "layout";
+@import "navbar";
+@import "footer";
 @import "welcome";
 @import "users";
+@import "googleMaps";
+@import "reservations";
