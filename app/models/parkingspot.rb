@@ -1,4 +1,5 @@
 class Parkingspot < ApplicationRecord
+	 include ImageUploader[:image]
 #Relations
 	belongs_to :user
 	has_many :reservations
@@ -14,4 +15,7 @@ class Parkingspot < ApplicationRecord
  	validates :address, presence: true
   validates :user_id, presence: true
   validates :price, presence: true
+  validates :image, presence: true
+
+
 end

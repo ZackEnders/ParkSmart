@@ -5,11 +5,11 @@
   <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script> <!-- only if you need custom infoboxes -->
 </head>
 <script type="text/javascript">
-            function init() {
-                var input = document.getElementById('locationTextField');
-                var autocomplete = new google.maps.places.Autocomplete(input);
-            }
-            google.maps.event.addDomListener(window, 'load', init);
+  function init() {
+      var input = document.getElementById('locationTextField');
+      var autocomplete = new google.maps.places.Autocomplete(input);
+  }
+  google.maps.event.addDomListener(window, 'load', init);
 </script>
 
 <div class="panel panel-default">
@@ -18,7 +18,18 @@
   </div>
   <div class="panel-body">
     <div class="container">
+
+
+      
       <%= form_for @parkingspot do |f| %>
+
+            <div class="form-group">
+             <%= f.hidden_field :image, value: @parkingspot.cached_image_data %>
+             <%= f.label :image %>
+             <%= f.file_field :image, :required => true%>
+          </div>
+
+       
         <div class="row">
             <div class="form-group">
               <label>Listing Name</label>
@@ -29,7 +40,7 @@
           <div class="row">
             <div class="form-group">
               <label>Description</label>
-              <%= f.text_area :description, rows: 5,:required => true, placeholder: 'Tell about your parking spot!', class: 'form-control' %>
+              <%= f.text_area :description, rows: 5,:required => true, placeholder: 'Tell us about your parking spot!', class: 'form-control' %>
             </div>
           </div>
 
@@ -40,41 +51,19 @@
             </div>
           </div>
 
-          <div class="row">
-            <div class="col-md-4">
+
               <div class="form-group">
                 <label>Daily Price</label>
                 <div class="input-group">
                   <div class="input-group-addon">$</div>
                   <%= f.text_field :price, placeholder: 'e.g. $20', class: 'form-control' %>
-                </div>
               </div>
-            </div>
           </div>
 
-<!--           <div class="row">
-            <div class="col-md-4">
-              <div class="form-group">
-                <span class="btn btn-default btn-file">
-                  <i class="fa fa-cloud-upload fa-lg"></i> Upload Photos
-                  <%#= file_field_tag "images[]", type: :file, multiple: true %>
-                </span>
-              </div>
-            </div>
-          </div>
- -->
-<!--           <div id="photos">
-            <%#= render 'photos/list' %>
-          </div> -->
 
-          <%= f.hidden_field :user_id, :value => current_user.id %>
-          <div class="row">
+            
+            <%= f.hidden_field :user_id, :value => current_user.id %>
             <div class="form-group">
-              <label><%= f.check_box :rented %> Rented</label>
-            </div>
-          </div>
-
-          <div class="actions">
             <%= f.submit "Save", class: "btn btn-primary" %>
           </div>
       <% end %>

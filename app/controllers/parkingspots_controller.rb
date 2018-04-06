@@ -69,7 +69,8 @@ class ParkingspotsController < ApplicationController
   def parkingspot_params
     params.require(:parkingspot).permit(
        	:user_id, :address, :price, :rented, 
-       	:description, :latitude, :longitude, :listing_name)
+       	:description, :latitude, :longitude, :listing_name,
+        :image, :image_data, :remove_image)
   end
   def reservation_params
     params.require(:reservation).permit(:start_date, :end_date,

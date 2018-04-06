@@ -4,9 +4,24 @@
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
-          <a href="/" class="navbar-brand"><span class="glyphicon glyphicon-home"></span> PARKSMART</a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a href="/" class="navbar-brand"><span class="glyphicon glyphicon-home"></span> PARKSMART</a>
       </div>
+        
         <ul  class="nav navbar-nav navbar-right">
+          <form style="background-color: #222222;" class="navbar-form pull-left" role="search">
+        <div class="input-group">
+          <input style="background-color: #222222; color: grey;" type="text" class="form-control" placeholder="City or Zip" name="srch-term" id="srch-term">
+            <div class="input-group-btn">
+                <button style="background-color: #222222;" class="btn btn-default" type="submit"><i style="color: grey;" class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
+        </form>
           <li><a href="/parkingspots">Parking</a></li>
           <li><a href="/users/sign_in"><span class="glyphicon glyphicon-user"></span> Login</a></li>
           <li><a href="/users/sign_up"><span class="glyphicon glyphicon-log-in"></span> Sign Up</a></li>
@@ -16,12 +31,20 @@
   </nav>
 <% else %>
 <!-- This is the nav bar when you're logged in as a user -->
-  <nav class="navbar navbar-inverse navbar-fixed-top">
+  <nav class="navbar navbar-collapse navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
         <%= link_to "PARKSMART", user_profile_path(:username => current_user.username) , class: "navbar-brand"%>
       </div>
       <ul  class="nav navbar-nav navbar-right">
+        <form style="background-color: #222222;" class="navbar-form pull-left" role="search">
+        <div class="input-group">
+          <input style="background-color: #222222; color: grey;" type="text" class="form-control" placeholder="City or Zip" name="srch-term" id="srch-term">
+            <div class="input-group-btn">
+                <button style="background-color: #222222;" class="btn btn-default" type="submit"><i style="color: grey;"class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
+        </form>
         <li><%= link_to "Parking", parkingspots_path(:username => current_user.username)%></li>
         <li><%= link_to "Profile", user_profile_path(:username => current_user.username)%></li>
         <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
@@ -29,3 +52,5 @@
     </div>
   </nav>
 <% end %>
+
+
