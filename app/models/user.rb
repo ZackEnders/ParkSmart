@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  # include ImageUploader[:avatar]
 #Relations
   has_many :parkingspots
   has_many :reservations

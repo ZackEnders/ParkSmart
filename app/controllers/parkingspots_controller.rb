@@ -33,33 +33,50 @@ class ParkingspotsController < ApplicationController
 
     @parkingspot = Parkingspot.new(parkingspot_params)
     if @parkingspot.save
-    	flash[:notice] = "Saved!"
-      redirect_to root_path 
+    	flash[:notice] = "Parking Spot Created!"
+      redirect_to "/profile/#{current_user.username}"
     else
       render :new
     end
   end
 
-  # def update
-  #   if @parkingspot.update(parkingspot_params)
-  #     if params[:images]
-  #       params[:images].each do |image|
-  #         @parkingspot.photos.create(image: image)
-  #       end
-  #     end
-  #     redirect_to rot_path
-  #   else
-  #     render :edit
-  #   end
-  # end
+    def edit
 
-  # def edit
-  #   if current_user.id == @parkingspot.user_id
-  #    @photos = @parkingspot.photos
-  #   else
-  #     redirect_to root_path, notice: "You don't have permission."
-  #   end
-  # end
+        if current_user.id == @parkingspot.user_id
+
+          else 
+            flash[:notice] = "Access Denied"
+            redirect_to root_path
+
+        end
+  end
+
+    def update
+      
+
+      #if the parking spot is updated it stores the parkingspot_params and alerts the user that it was updated
+        if @parkingspot.update(parkingspot_params)
+            flash[:notice] = "Parking spot post updated!"
+            redirect_to "/profile/#{current_user.username}"
+        else
+            flash[:notice] = "Parking spot update unsuccessful!"
+            render edit_parkingspot_path
+        end
+  end
+
+  def destroy
+
+      parkingspot = Parkingspot.find(params[:id])
+      #if parking spot destroy is successful then it alerts the user that it was deleted
+        if parkingspot.destroy
+            flash[:notice] = "Parking spot post deleted!"
+            redirect_to "/profile/#{current_user.username}" 
+        else
+            flash[:notice] = "Could not delete parking spot!"
+            render edit_parkingspot_path
+      end
+  end
+
 
   private
   def set_room
@@ -69,7 +86,8 @@ class ParkingspotsController < ApplicationController
   def parkingspot_params
     params.require(:parkingspot).permit(
        	:user_id, :address, :price, :rented, 
-       	:description, :latitude, :longitude, :listing_name)
+       	:description, :latitude, :longitude, :listing_name,
+        :image, :image_data, :remove_image)
   end
   def reservation_params
     params.require(:reservation).permit(:start_date, :end_date,
