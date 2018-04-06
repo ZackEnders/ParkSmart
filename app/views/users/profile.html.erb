@@ -1,72 +1,69 @@
 <div class="container">
-<div class="user_title text-center"><h1 class="text-capitalize"> <%=@user.username%> | Dashboard</h1>
-	<% if user_signed_in? %>
-		<% if current_user.username == @user.username %>
-    	<div><%= link_to 'Edit your profile', edit_user_registration_path %>
+	<div class="user_title text-center"><h1 class="text-capitalize"> <%=@user.username%> | Dashboard</h1>
+		<% if user_signed_in? %>
+			<% if current_user.username == @user.username %>
+    		<div><%= link_to 'Edit your profile', edit_user_registration_path %>
     										or rent out your 
 						<%= link_to " parking spot!", new_parkingspot_path %>
-			</div>
+				</div>
+				<div class="col-md-6 text-center">
+					<h2>My Parking Spots</h2>
+					<% @parkingspot.each do |ps| %>
+						<div class="listings">
+							<a href="/parkingspots/<%= ps.id%>/edit">Edit Post</a>
+							<a href="/parkingspots/<%= ps.id%>">
+								<% if ps.image_data? %>
+									<div class=""><%= image_tag ps.image_url(:small), class: "parkingspotpic"%></div>
+								<% end %>
+							</a>
+								<%= ps.listing_name %>
+										<br/>
+								<%= ps.address %> 
+										<br/>
+					 			<%= number_to_currency(ps.price) %> per day
+										<br/>
+						</div>
+					<% end %>
+				</div>
 
-
-<div class="col-md-6 text-center">
-	<h2>My Parking Spots</h2>
-	<% @parkingspot.each do |ps| %>
-		<div class="listings">
-			<a href="/parkingspots/<%= ps.id%>">
-	<% if ps.image_data? %>
-		<div class=""><%= image_tag ps.image_url(:small), class: "parkingspotpic"%></div>
-	<% end %>
-</a>
-				<%= ps.listing_name %>
-			<br/>
-				<%= ps.address %> 
-			<br/>
-	 			<%= number_to_currency(ps.price) %> per day
-			<br/>
-		</div>
-	<% end %>
-</div>
-</div>
-	
 			<div class="col-md-6 text-center">
 				<h2>My Reservations</h2>
- 				<% @reservation.each do |r| %>
-   				<div class="listings">
-   					<%= r.start_date.to_s.to_date %> -
-   					<%= r.end_date.to_s.to_date %>
-   					<br/>
-   					<a href="../parkingspots/<%= r.parkingspot_id %>">Parkingspot listing</a> | 
-   					<a href="../parkingspots/<%= r.parkingspot_id %>/reservations/<%= r.id %>">Reservation Confirmation</a>
-   				</div>
-    		<%end %>
+					<% @reservation.each do |r| %>
+ 					<div class="listings">
+ 						<%= r.start_date.strftime("%d/%m/%Y") %> -
+ 						<%= r.end_date.strftime("%d/%m/%Y") %>
+ 									<br/>
+ 						<a href="../parkingspots/<%= r.parkingspot_id %>">Parking spot listing</a> | 
+ 						<a href="../parkingspots/<%= r.parkingspot_id %>/reservations/<%= r.id %>">Reservation Confirmation</a>
+ 					</div>
+  			<%end %>
 			</div>
 		</div>
+	</div>
 		<% else %>
-		<div class="container">
-		<div class="col-md-6 text-center">
-	<h2><%= @user.fName %>'s Parking Spots</h2>
-	<% @parkingspot.each do |ps| %>
-		<div class="listings">
-			<a href="/parkingspots/<%= ps.id%>">
-	<% if ps.image_data? %>
-		<div class=""><%= image_tag ps.image_url(:small), class: "parkingspotpic"%></div>
-	<% end %>
-</a>
-				<%= ps.listing_name %>
-			<br/>
-				<%= ps.address %> 
-			<br/>
-	 			<%= number_to_currency(ps.price) %> per day
-			<br/>
-		</div>
-	<% end %>
-</div>
-</div>
-
-
+			<div class="container">
+				<div class="col-md-6 text-center">
+					<h2><%= @user.fName %>'s Parking Spots</h2>
+						<% @parkingspot.each do |ps| %>
+							<div class="listings">
+								<a href="/parkingspots/<%= ps.id%>">
+									<% if ps.image_data? %>
+										<div class=""><%= image_tag ps.image_url(:small), class: "parkingspotpic"%></div>
+									<% end %>
+								</a>
+									<%= ps.listing_name %>
+										<br/>
+									<%= ps.address %> 
+										<br/>
+									<%= number_to_currency(ps.price) %> per day
+										<br/>
+							</div>
+						<% end %>
+					</div>
+				</div>
 			</div>
 		</div>
-	<% end %>
+		<% end %>
 <% end %>
 
 

@@ -2,13 +2,61 @@ body {
 	margin-top: 50px;
 	background-color: #eceeef;
 }
+// .notice {
+// 	position: fixed;
+// 	top: 10%;
+// 	left: 50%;
+// }
+// .alert {
+// 	position: fixed;
+// 	top: 10%;
+// 	left: 50%;
+// }
+
 .notice {
-	position: fixed;
-	top: 10%;
-	left: 50%;
+	position: absolute;
+	top: 51px;
+	width: 100%;
+	background: #386392;
+	text-align: center;
+	color: white;
+	text-transform: uppercase;
+	margin: 0;
+	padding: 0;
+	animation-name: flash;
+	animation-duration: 4s;
+	visibility: hidden;
+	z-index: 100;
 }
 .alert {
-	position: fixed;
-	top: 10%;
-	left: 50%;
+	position: absolute;
+	top: 51px;
+	width: 100%;
+	background: limegreen;
+	text-align: center;
+	color: white;
+	text-transform: uppercase;
+	margin: 0;
+	padding: 0;
+	animation-name: flash;
+	animation-duration: 4s;
+	visibility: hidden;
+	z-index: 100;
+}
+
+@keyframes flash {
+	0% {
+		opacity: 0;
+		visibility: visible;
+	}
+	25% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.1;
+	}
+	100% {
+		opacity: 1;
+		visibility: hidden;
+	}
 }

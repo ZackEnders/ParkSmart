@@ -25,11 +25,11 @@ class ApplicationController < ActionController::Base
   end
   # Overwriting the sign_out redirect path method
   def after_sign_out_path_for(resource_or_scope)
-    request.referrer
+    root_path ||  stored_location_for(resource_or_scope)
   end
    # Overwriting the sign_up redirect path method
   def after_sign_up_path_for(resource_or_scope)
-    stored_location_for(resource_or_scope) || super
+    redirect_to user_profile_path(:username => current_user.username)
   end
 
   def after_update_path_for(resource)

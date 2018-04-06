@@ -2,7 +2,7 @@ class Parkingspot < ApplicationRecord
 	 include ImageUploader[:image]
 #Relations
 	belongs_to :user
-	has_many :reservations
+	has_many :reservations, :dependent => :delete_all
 	# has_many :photos
 
 #Geocoder

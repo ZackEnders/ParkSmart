@@ -1,27 +1,29 @@
 <head>
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
-<div>Parking spot id <%= @parkingspot.id %></div>
-<h1>Parking spot</h1>
 
-	<!-- <div>Image: <%#= @parkingspot.image %></div> -->
-	<div>Image: <%= @parkingspot.listing_name %></div>
-	<div>Description: <%= @parkingspot.description %></div>
-	<div>Cost/hr: <%= @parkingspot.price %></div>
-	<div>Location: <%= @parkingspot.address%></div>
-	edit button
-<div class="col-md-5">
-  <%= render "maps/googlemaps" %>
+<div id="resForm">
+	<div class="jumbotron">
+		<div class="container">
+			<div class="col-md-12 text-center start-end">
+				<% if user_signed_in? %>
+					<%= render "reservations/form" %>
+				<% else %>
+					<div class="text-center">Please <%= link_to 'Login', new_user_session_path%> or 
+						<%= link_to 'Sign Up', new_user_registration_path %> to reserve this spot!</div>
+				<% end %>
+			</div>
+
+			<div class="col-md-7">
+				<%= image_tag @parkingspot.image_url(:medium), class: "parkingspotpic" %>
+				<h4><%= @parkingspot.address%></h4> 
+				<h5><%= number_to_currency(@parkingspot.price) %> per day</h5>
+				<h5>Description: <%= @parkingspot.description %></h5>
+			</div>
+
+			<div class="col-md-5">
+				<%= render "maps/googlemaps" %>
+			</div>
+		</div>
+	</div>
 </div>
-
-<% if user_signed_in? %>
-<%= render "reservations/form" %>
-<% else %>
-Please <%= link_to 'Login', new_user_session_path%> or 
-<%= link_to 'Sign Up', new_user_registration_path %> to reserve this spot!
-<% end %>
- 
-
-  
-
-
