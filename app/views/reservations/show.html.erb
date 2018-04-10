@@ -7,8 +7,8 @@
           <h1>Reservation Confirmation</h1>
           <h4>Your ConfirmationID# is: <%= @reservation.id %></h4>
           <h4>The cost of your Reservation is: <%= number_to_currency(@reservation.price) %></h4>
-          <h4>Start Date: <%= @reservation.start_date.strftime("%d/%m/%Y") %></h4>
-          <h4>End Date: <%= @reservation.end_date.strftime("%d/%m/%Y") %></h4>
+          <h4>Start Date: <%= @reservation.start_date.strftime("%m/%d/%Y") %></h4>
+          <h4>End Date: <%= @reservation.end_date.strftime("%m/%d/%Y") %></h4>
           <h4>Address: <%= @parkingspot.address%></h4>
           <h4>Listing Name: <span class="confSpan"><%= @parkingspot.listing_name%></span></h4>
           <h4>Description: <span class="confSpan"><%= @parkingspot.description%></span></h4>
