@@ -24,8 +24,8 @@ class ParkingspotsController < ApplicationController
     @reservedDates = []
     #Pushes the date results into an array 
     @object.each do |o|
-      date_from  = Date.parse(o.start_date)
-      date_to    = Date.parse(o.end_date)
+      date_from = Date.parse(o.start_date)
+      date_to = Date.parse(o.end_date)
       #Creates a date range for each reservation allowing the user to reserve multiple days
       @date_range = (date_from..date_to).to_a
         @date_range.each do |d|
