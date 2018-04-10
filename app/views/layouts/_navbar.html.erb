@@ -12,20 +12,21 @@
       </button>
         <a href="/" class="navbar-brand"><span class="glyphicon glyphicon-home"></span> PARKSMART</a>
       </div>
-        
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul  class="nav navbar-nav navbar-right">
-          <form style="background-color: #222222;" class="navbar-form pull-left" role="search">
+         <!--  <form style="background-color: #222222;" class="navbar-form pull-left" role="search">
         <div class="input-group">
           <input style="background-color: #222222; color: grey;" type="text" class="form-control" placeholder="City or Zip" name="srch-term" id="srch-term">
             <div class="input-group-btn">
                 <button style="background-color: #222222;" class="btn btn-default" type="submit"><i style="color: grey;" class="glyphicon glyphicon-search"></i></button>
             </div>
         </div>
-        </form>
+        </form> -->
           <li><a href="/parkingspots">Parking</a></li>
           <li><a href="/users/sign_in"><span class="glyphicon glyphicon-user"></span> Login</a></li>
           <li><a href="/users/sign_up"><span class="glyphicon glyphicon-log-in"></span> Sign Up</a></li>
-        </ul> 
+        </ul>
+        </div> 
       </div>
     </div>
   </nav>
@@ -34,22 +35,30 @@
   <nav class="navbar navbar-collapse navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
         <%= link_to "PARKSMART", user_profile_path(:username => current_user.username) , class: "navbar-brand"%>
       </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul  class="nav navbar-nav navbar-right">
-        <form style="background-color: #222222;" class="navbar-form pull-left" role="search">
+        <!-- <form style="background-color: #222222;" class="navbar-form pull-left" role="search">
         <div class="input-group">
           <input style="background-color: #222222; color: grey;" type="text" class="form-control" placeholder="City or Zip" name="srch-term" id="srch-term">
             <div class="input-group-btn">
                 <button style="background-color: #222222;" class="btn btn-default" type="submit"><i style="color: grey;"class="glyphicon glyphicon-search"></i></button>
             </div>
         </div>
-        </form>
+        </form> -->
         <li><%= link_to "Parking", parkingspots_path(:username => current_user.username)%></li>
         <li><%= link_to "Profile", user_profile_path(:username => current_user.username)%></li>
         <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
       </ul>
     </div>
+  </div>
   </nav>
 <% end %>
 
