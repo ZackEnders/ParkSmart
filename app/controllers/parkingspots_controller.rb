@@ -16,7 +16,7 @@ class ParkingspotsController < ApplicationController
     @unavailableDates = []
     #Stores the reservation dates in an array
       @reservations.each do |t|
-        @unavailableDates.push({start_date: t.start_date.strftime('%Y-%m-%d'), end_date: t.end_date.strftime('%Y-%m-%d')})
+        @unavailableDates.push({start_date: t.start_date.strftime('%F'), end_date: t.end_date.strftime('%F')})
       end
       #Converts the reservation dates to json and then parses the data which allows for sorting
         @data = @unavailableDates.to_json

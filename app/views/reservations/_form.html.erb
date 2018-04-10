@@ -3,14 +3,15 @@ $(function() {
 
 var array = <%= raw @reservedDates %>
 
-var dateFormat = "mm/dd/yy",
+
 	from = $( "#start-date" ).datepicker({
+		dateFormat: "yy-mm-dd",
 		defaultDate: "+1w",
 		changeMonth: true,
 		numberOfMonths: 1,
 		minDate: 0,
 	beforeShowDay: function(date){
-		var string = jQuery.datepicker.formatDate('yy-dd-mm', date);
+		var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
 
 		return [ array.indexOf(string) == -1 ]
 	}			
@@ -21,12 +22,13 @@ var dateFormat = "mm/dd/yy",
 }),
 
 	to = $( "#end-date" ).datepicker({
+		dateFormat: "yy-mm-dd",
 		defaultDate: "+1w",
 		changeMonth: true,
 		numberOfMonths: 1,
 		minDate: 0,
 	beforeShowDay: function(date){
-		var string = jQuery.datepicker.formatDate('yy-dd-mm', date);
+		var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
 		
 		return [ array.indexOf(string) == -1 ]
 	}		
@@ -48,9 +50,10 @@ function getDate( element ) {
 	}
 });
 
+
 </script>
 
-<!-- Testing: <%#= @reservedDates %> -->
+Testing: <%= @reservedDates %> 
 <div class="row">
 	<div class="col-md-12">
 	<%= form_for([@parkingspot, @reservation]) do |f| %>
