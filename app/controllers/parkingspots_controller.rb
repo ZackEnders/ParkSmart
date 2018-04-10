@@ -23,10 +23,18 @@ class ParkingspotsController < ApplicationController
         @object = JSON.parse(@data, object_class: OpenStruct)
     @reservedDates = []
     #Pushes the date results into an array 
-      @object.each do |o|
-        @reservedDates.push(o.start_date)
-        @reservedDates.push(o.end_date)
-      end
+    @object.each do |o|
+      date_from  = Date.parse(o.start_date)
+      date_to    = Date.parse(o.end_date)
+      #Creates a date range for each reservation allowing the user to reserve multiple days
+      @date_range = (date_from..date_to).to_a
+        @date_range.each do |d|
+          @reservedDates.push(d.strftime('%F'))
+        end
+    end
+
+
+    
   end
 
   def create
