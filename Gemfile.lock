@@ -115,6 +115,7 @@ GEM
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
+    pg (1.0.0)
     public_suffix (3.0.2)
     puma (3.11.3)
     rack (2.0.4)
@@ -170,8 +171,6 @@ GEM
       rubyzip (~> 1.2)
     shrine (2.10.1)
       down (~> 4.1)
-    simple_calendar (2.2.7)
-      rails (>= 3.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -226,12 +225,12 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   mini_magick (>= 4.3.5)
   momentjs-rails (>= 2.9.0)
+  pg
   puma (~> 3.7)
   rails (~> 5.1.6)
   sass-rails (~> 5.0)
   selenium-webdriver
   shrine
-  simple_calendar (~> 2.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3

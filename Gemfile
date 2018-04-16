@@ -4,18 +4,35 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
+
+#Image uploads
 gem "image_processing"
 gem "mini_magick", ">= 4.3.5"
 gem "shrine"
+#Other date picker option
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
+#Geo location for Google maps
 gem 'geocoder'
+#Datepicker for booking
 gem 'jquery-ui-rails'
-gem "simple_calendar", "~> 2.0"
+# gem "simple_calendar", "~> 2.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
+
+group :development, :test do
+
+  gem 'sqlite3'
+
+end
+
+group :production do
+
+  gem 'pg'
+
+end
 gem 'devise'
 # gem 'omniauth-facebook'
 # gem 'omniauth-google-oauth2'
