@@ -45,14 +45,14 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul  class="nav navbar-nav navbar-right">
-        <!-- <form style="background-color: #222222;" class="navbar-form pull-left" role="search">
+        <form style="background-color: #222222;" class="navbar-form pull-left" role="search">
         <div class="input-group">
           <input style="background-color: #222222; color: grey;" type="text" class="form-control" placeholder="City or Zip" name="srch-term" id="srch-term">
             <div class="input-group-btn">
                 <button style="background-color: #222222;" class="btn btn-default" type="submit"><i style="color: grey;"class="glyphicon glyphicon-search"></i></button>
             </div>
         </div>
-        </form> -->
+        </form>
         <li><%= link_to "Parking", parkingspots_path(:username => current_user.username)%></li>
         <li><%= link_to "Profile", user_profile_path(:username => current_user.username)%></li>
         <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>

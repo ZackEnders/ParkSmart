@@ -30,8 +30,8 @@
 				<h2>My Reservations</h2>
 					<% @reservation.each do |r| %>
  					<div class="listings">
- 						<%= r.start_date.strftime("%d/%m/%Y") %> -
- 						<%= r.end_date.strftime("%d/%m/%Y") %>
+ 						<%= r.start_date.strftime("%m-%d-%y") %> -
+ 						<%= r.end_date.strftime("%m-%d-%y") %>
  									<br/>
  						<a href="../parkingspots/<%= r.parkingspot_id %>">Parking spot listing</a> | 
  						<a href="../parkingspots/<%= r.parkingspot_id %>/reservations/<%= r.id %>">Reservation Confirmation</a>
