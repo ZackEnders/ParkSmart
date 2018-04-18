@@ -1,7 +1,7 @@
 class CreateParkingspots < ActiveRecord::Migration[5.1]
   def change
     create_table :parkingspots do |t|
-    	t.references :user, index: true, foreign_key: true
+    	t.integer :user_id
     	t.string :address
     	t.integer :price
       t.boolean :rented
