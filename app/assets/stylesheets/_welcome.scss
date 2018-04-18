@@ -49,7 +49,7 @@
 	margin: 20px;
 }
 #googleplay {
-	background-image: url("/assets/googleplay.png");
+	background-image: image-url("/assets/googleplay.png");
 	background-size: cover;
 	background-repeat: no-repeat;
 	border-radius: 8px;
@@ -60,7 +60,7 @@
 	display: inline-block;
 }
 #applestore {
-	background-image: url("/assets/applestore.png");
+	background-image: image-url("/assets/applestore.png");
 	background-size: cover;
 	background-repeat: no-repeat;
 	border-radius: 8px;

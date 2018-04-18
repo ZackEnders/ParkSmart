@@ -1,9 +1,5 @@
-<!-- Google Maps partial -->
-<!-- Google Maps styling in googleMaps.scss -->
-<!-- Render box -->
-<div id="parking-show-map"></div>
-<input type="button" id="toggleButton" value="Street View" onClick="toggleStreetView()"></input>
-<!-- JavaScript to make the google map work -->
+<head>
+  <!-- JavaScript to make the google map work -->
 <script>
 var longitude = parseFloat('<%= @parkingspot.longitude %>')
 var latitude = parseFloat('<%= @parkingspot.latitude %>')
@@ -43,3 +39,12 @@ function toggleStreetView() {
 <script async defer
 src='https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_API_KEY"]%>&callback=initMap'>
 </script>
+</head>
+
+
+
+<!-- Google Maps partial -->
+<!-- Google Maps styling in googleMaps.scss -->
+<!-- Render box -->
+<div id="parking-show-map"></div>
+<input type="button" id="toggleButton" value="Street View" onClick="toggleStreetView()"></input>

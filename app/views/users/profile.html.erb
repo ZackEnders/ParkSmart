@@ -1,10 +1,17 @@
+<script type="text/javascript">
+	
+
+</script>
+
+
 <div class="container">
 	<div class="user_title text-center"><h1 class="text-capitalize"> <%=@user.username%> | Dashboard</h1>
 		<% if user_signed_in? %>
 			<% if current_user.username == @user.username %>
     		<div><%= link_to 'Edit your profile', edit_user_registration_path %>
     										or rent out your 
-						<%= link_to " parking spot!", new_parkingspot_path %>
+    										<a href="/parkingspots/new"> parking spot!</a>
+						<%#= link_to " parking spot!", new_parkingspot_path, :id => "clickevent" %>
 				</div>
 				<div class="col-md-6 text-center">
 					<h2>My Parking Spots</h2>

@@ -1,6 +1,6 @@
 // ------------------- Login -------------------- //
 .login-bg {
-	background-image: url("/assets/login-bg.jpg");
+	background-image: image-url("/assets/login-bg.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -18,7 +18,7 @@
 #loginForm {
 	//Form styling inside the loginForm
 	.signup-bg {
-		background-image: url("/assets/signup-bg.jpg");
+		background-image: image-url("/assets/signup-bg.jpg");
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-attachment: fixed;
@@ -132,7 +132,7 @@
 
 #signupForm {
 	.signup-bg {
-		background-image: url("/assets/signup-bg.jpg");
+		background-image: image-url("/assets/signup-bg.jpg");
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-attachment: fixed;
@@ -213,7 +213,7 @@
 	}
 }
 .editProfile-bg {
-	background-image: url("/assets/profile-bg.jpg");
+	background-image: image-url("/assets/profile-bg.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
