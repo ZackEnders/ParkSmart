@@ -10,7 +10,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :gender 
       t.string :phoneNumber                   
       t.string :location
-      t.string :discription
+      t.string :description
       t.string :avatar
 
       ## Database authenticatable

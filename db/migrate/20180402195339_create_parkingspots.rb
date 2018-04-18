@@ -2,6 +2,7 @@ class CreateParkingspots < ActiveRecord::Migration[5.1]
   def change
     create_table :parkingspots do |t|
     	t.integer :user_id
+      t.text :image_data
     	t.string :address
     	t.integer :price
       t.boolean :rented
