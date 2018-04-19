@@ -54,7 +54,7 @@
 						<% @parkingspot.each do |ps| %>
 							<div class="listings">
 								<a href="/parkingspots/<%= ps.id%>">
-									<% if ps.image_data? %>
+									<% if ps.image? %>
 										<div class=""><%= image_tag ps.image_url(:small), class: "parkingspotpic"%></div>
 									<% end %>
 								</a>
