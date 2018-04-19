@@ -11,7 +11,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :phoneNumber                   
       t.string :location
       t.string :description
-      t.string :avatar
 
       ## Database authenticatable
       t.string :username,           null: false, default: "" 

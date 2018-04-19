@@ -22,10 +22,9 @@
   </div>
   <div class="panel-body">
     <div class="container"> 
-      <%= form_for @parkingspot do |f| %>
+      <%= form_for @parkingspot, html: { multipart: true } do |f| %>
         <div class="row">
           <div class="form-group">
-            <%= f.hidden_field :image, value: @parkingspot.cached_image_data %>
             <%= f.label :image %>
             <%= f.file_field :image, :required => true%>
           </div>

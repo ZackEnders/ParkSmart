@@ -1,5 +1,7 @@
 <head>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!--    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
 </head>
 
 <div id="resForm">
@@ -15,7 +17,7 @@
 			</div>
 
 			<div class="col-md-7">
-				<%= image_tag @parkingspot.image_url(:medium), class: "parkingspotpic" %>
+				<%= image_tag @parkingspot.image.url(:med), class: "parkingspotpic" %>
 				<h4><%= @parkingspot.address%></h4> 
 				<h5><%= number_to_currency(@parkingspot.price) %> per day</h5>
 				<h5>Description: <%= @parkingspot.description %></h5>

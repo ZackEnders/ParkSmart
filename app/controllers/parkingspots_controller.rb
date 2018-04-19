@@ -44,6 +44,7 @@ class ParkingspotsController < ApplicationController
     	flash[:notice] = "Parking Spot Created!"
       redirect_to "/profile/#{current_user.username}"
     else
+      flash[:notice] = "Parking Spot was not Created!"
       render :new
     end
   end
@@ -95,7 +96,7 @@ class ParkingspotsController < ApplicationController
     params.require(:parkingspot).permit(
        	:user_id, :address, :price, :rented, 
        	:description, :latitude, :longitude, :listing_name,
-        :image, :image_data, :remove_image)
+        :image)
   end
   def reservation_params
     params.require(:reservation).permit(:start_date, :end_date,

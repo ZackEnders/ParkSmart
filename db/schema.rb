@@ -10,10 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180418005216) do
+ActiveRecord::Schema.define(version: 20180402195339) do
 
   create_table "parkingspots", force: :cascade do |t|
     t.integer "user_id"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.string "address"
     t.integer "price"
     t.boolean "rented"
@@ -23,9 +27,6 @@ ActiveRecord::Schema.define(version: 20180418005216) do
     t.string "listing_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
-    t.text "image_data"
-    t.index ["user_id"], name: "index_parkingspots_on_user_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -37,8 +38,6 @@ ActiveRecord::Schema.define(version: 20180418005216) do
     t.datetime "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["parkingspot_id"], name: "index_reservations_on_parkingspot_id"
-    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -49,7 +48,6 @@ ActiveRecord::Schema.define(version: 20180418005216) do
     t.string "phoneNumber"
     t.string "location"
     t.string "description"
-    t.string "avatar"
     t.string "username", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -63,10 +61,6 @@ ActiveRecord::Schema.define(version: 20180418005216) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true

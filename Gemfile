@@ -8,7 +8,9 @@ end
 #Image uploads
 gem "image_processing"
 gem "mini_magick", ">= 4.3.5"
-gem "shrine"
+# gem "shrine"
+gem 'aws-sdk-s3'
+gem 'paperclip', git: "git://github.com/thoughtbot/paperclip.git"
 #Other date picker option
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
@@ -28,6 +30,7 @@ gem 'devise'
 # gem 'omniauth-google-oauth2'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.2.0'
@@ -70,7 +73,6 @@ end
 group :production do
 
   gem 'pg'
-  gem 'rails_12factor'
 
 end
 

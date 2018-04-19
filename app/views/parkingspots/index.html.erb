@@ -5,8 +5,8 @@
 
 <div class="col-sm-3 text-center">
 <a href="/parkingspots/<%= ps.id%>">
-	<% if ps.image_data? %>
-		<div class=""><%= image_tag ps.image_url(:small), class: "parkingspotpic"%></div>
+	<% if ps.image? %>
+		<div class=""><%= image_tag ps.image.url(:small), class: "parkingspotpic"%></div>
 	<% end %>
 </a>
 <h6><%= ps.address %></h6>
