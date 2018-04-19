@@ -94,7 +94,8 @@ Rails.application.configure do
     access_key_id: ENV.fetch('AWS_API_KEY'),
     secret_access_key: ENV.fetch('AWS_SECERT_KEY'),
     s3_region: ENV.fetch('AWS_REGION'),
-  }
+  },
+  :url => ':s3_domain_url'
 }
 
   # Do not dump schema after migrations.
