@@ -17,7 +17,7 @@
 			</div>
 
 			<div class="col-md-7">
-				<%= image_tag @parkingspot.image.url(:med), class: "parkingspotpic" %>
+				<%= image_tag @parkingspot.image.url(:med), alt: "Parking spot", class: "parkingspotpic" %>
 				<h4><%= @parkingspot.address%></h4> 
 				<h5><%= number_to_currency(@parkingspot.price) %> per day</h5>
 				<h5>Description: <%= @parkingspot.description %></h5>

@@ -20,7 +20,7 @@
 							<a href="/parkingspots/<%= ps.id%>/edit">Edit Post</a>
 							<a href="/parkingspots/<%= ps.id%>">
 								<% if ps.image? %>
-									<div class=""><%= image_tag ps.image.url(:small), class: "parkingspotpic"%></div>
+									<div class=""><%= image_tag ps.image.url(:small), alt: "Parking spot", class: "parkingspotpic"%></div>
 								<% end %>
 							</a>
 								<%= ps.listing_name %>
@@ -55,7 +55,7 @@
 							<div class="listings">
 								<a href="/parkingspots/<%= ps.id%>">
 									<% if ps.image? %>
-										<div class=""><%= image_tag ps.image.url(:small), class: "parkingspotpic"%></div>
+										<div class=""><%= image_tag ps.image.url(:small), alt: "Parking spot", class: "parkingspotpic"%></div>
 									<% end %>
 								</a>
 									<%= ps.listing_name %>
